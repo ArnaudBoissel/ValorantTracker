@@ -1,5 +1,3 @@
-//path fade : https://valorant-api.com/v1/agents/dade69b4-4f5a-8528-247b-219e5a1facd6
-//path all : https://valorant-api.com/v1/agents
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -18,6 +16,9 @@ interface Agent {
 })
 export class AgentComponent implements OnInit {
   agents: Agent[] = [];
+  allAgents: Agent[] = [];
+  categories: string[] = [];
+  selectedCategory: string = 'All';
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +27,7 @@ export class AgentComponent implements OnInit {
       .subscribe(({status, data}) => {
         data.forEach(agent => {
           if (agent.isPlayableCharacter) {
-            this.agents.push({
+            this.allAgents.push({
               statusAgent: status,
               name: agent.displayName,
               category: agent.role.displayName,
@@ -35,25 +36,22 @@ export class AgentComponent implements OnInit {
             });
           }
         });
-        console.log(`Number of agents: ${this.agents.length}`);
+        this.allAgents.forEach(agent => {
+          if(!this.categories.includes(agent.category)) {
+            this.categories.push(agent.category);
+          }
+        });
+        this.agents = this.allAgents;
       });
+      this.categories.push("All");
   }
 
-
-
-
-//   ngOnInit() {
-//     this.http.get<{status: number, 
-//       data: {displayName: string, developerName: string, description: string, displayIcon: string
-//         role:{ displayName: string}  }}>('https://valorant-api.com/v1/agents/dade69b4-4f5a-8528-247b-219e5a1facd6')
-//       .subscribe(({status, data}) => {
-//         this.agents.push({
-//           statusAgent: status,
-//           name: data.displayName,
-//           category: data.role.displayName,//developerName,
-//           description: data.description,
-//           image: data.displayIcon
-//         });
-//       });
-//   }
+  filterAgents(category: string) {
+    this.selectedCategory = category;
+    if (category === 'All') {
+      this.agents = this.allAgents;
+    } else {
+      this.agents = this.allAgents.filter(agent => agent.category === category);
+    }
+  }
 }

@@ -1,0 +1,29 @@
+.map {
+    background-color: purple;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-card-container {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  
+  .mat-grid-tile {
+    width: 25%;
+  }
+  
+  .map-card {
+    height: auto;
+    min-height: 350px;
+    margin: 1%;
+    overflow: visible;
+  }
+  

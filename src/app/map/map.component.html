@@ -1,1 +1,17 @@
-<p>map works!</p>
+<div class="map-card-container mat-grid-list">
+    <mat-card class="map-card mat-grid-tile" *ngFor="let map of maps">
+        <img mat-card-image [src]="map.listViewIcon" alt="Image of map in list"/>
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{map.name}}</mat-card-title>
+        <mat-card-subtitle>{{map.coordinates}}</mat-card-subtitle>
+        <img mat-card-md-image *ngIf="map.displayIcon != null; else noDisplayIcon" [src]="map.displayIcon" alt="Image of a map">
+            <ng-template #noDisplayIcon>
+            <img mat-card-md-image [src]="map.splash" alt="Image of a map">
+            </ng-template>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+    </mat-card-content>
+  </mat-card>
+</div>

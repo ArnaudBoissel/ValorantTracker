@@ -7,6 +7,7 @@
 }
 
 .agent-card-container {
+    margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,7 +21,9 @@
   }
   
   .agent-card {
-    height: 350px;
+    height: auto;
+    min-height: 350px;
     margin: 1%;
+    overflow: visible;
   }
   
