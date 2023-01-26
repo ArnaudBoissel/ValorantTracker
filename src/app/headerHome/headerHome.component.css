@@ -1,0 +1,38 @@
+.headerHome {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.headerHome nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.headerHome nav a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .headerHome nav {
+        flex-wrap: wrap;
+    }
+
+    .headerHome nav a {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}

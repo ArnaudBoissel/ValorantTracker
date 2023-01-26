@@ -1,0 +1,26 @@
+.agent {
+    background-color: purple;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agent-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  
+  .mat-grid-tile {
+    width: 25%;
+  }
+  
+  .agent-card {
+    height: 350px;
+    margin: 1%;
+  }
+  

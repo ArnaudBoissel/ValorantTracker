@@ -1,6 +1,16 @@
-<div class="home-container">
-    <h1>Bienvenue sur mon site</h1>
-    <p>Cliquez sur le bouton ci-dessous pour commencer votre expérience</p>
-    <button class="start-button">Commencer</button>
+<div *ngIf="isHomeRoute()">
+<div class="home">
+  <div class="card home-card">
+    <a [routerLink]="['/agent']">Agent</a>
   </div>
-  
+  <div class="card home-card">
+    <a [routerLink]="['/map']">Map</a>
+  </div>
+  <div class="card home-card">
+    <a [routerLink]="['/weapon']">Weapon</a>
+  </div>
+  <div class="card home-card">
+    <a [routerLink]="['/bundle']">Bundle</a>
+  </div>
+</div>
+</div>

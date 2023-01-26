@@ -1,3 +1,10 @@
+.home {
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .home-container {
     text-align: center;
     margin: 50px;
@@ -21,4 +28,30 @@ p {
     border: none;
     font-size: 1.5em;
     cursor: pointer;
+}
+
+.home-card {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(167, 164, 164);
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    text-align:center;
+}
+
+.home-card:hover {
+    background-color: rgb(180, 41, 41);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.home-card a {
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.5em;
 }

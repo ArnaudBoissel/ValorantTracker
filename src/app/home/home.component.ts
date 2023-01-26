@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  onStartButtonClick() {
-    // Code pour gérer le clic sur le bouton "Commencer"
+  ngOnInit() {
   }
+
+  onCardClick() {
+    this.router.navigate(['/agent']);
+  }
+
+  isHomeRoute() {
+    return this.router.url === '/home';
+}
 }
