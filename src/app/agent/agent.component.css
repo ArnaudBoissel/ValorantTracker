@@ -1,13 +1,12 @@
 .agent {
-    background-color: purple;
-    height: 100vh;
+    background-color: rgb(198, 59, 59);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .agent-card-container {
-    margin-top: 25px;
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -26,3 +25,64 @@
     margin: 1%;
     overflow: visible;
   }
+
+.custom-filter {
+  float: right;
+  margin-right: 5%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  max-width: 200px;
+  color: blue;
+  margin-top:20px;
+}
+
+
+.custom-filter .custom-filter-label{
+  color: white;
+}
+
+.custom-filter .mat-select{
+  color:white;
+  background: cyan;
+  background-color: red;
+}
+
+.custom-filter .mat-option{
+  color:brown;
+}
+
+/* .custom-filter mat-select {
+  color: purple;
+  background: cyan;
+  background-color: red;
+  opacity: 0.75;
+} */
+
+
+.custom-filter .mat-form-field-underline {
+  /* Customize the color of the underline */
+  background-color: goldenrod !important;
+}
+
+.custom-selector .mat-form-field-label {
+  /* Customize the color of the label text */
+  color: pink !important;
+}
+
+.custom-selector .mat-select-value {
+  /* Customize the color of the selected value text */
+  color: pink !important;
+}
+
+.custom-selector .mat-select-arrow {
+  /* Customize the color of the arrow icon */
+  color: magenta !important;
+}
+
+.custom-selector .mat-select-underline {
+  /* Customize the color of the selected underline */
+  background-color: cyan !important;
+}
+

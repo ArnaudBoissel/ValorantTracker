@@ -14,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
     AgentComponent,
     MapComponent,
     WeaponComponent,
-    BundleComponent
+    BundleComponent,
   ],
   imports: [
     BrowserModule,

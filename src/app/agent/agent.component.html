@@ -1,22 +1,28 @@
-<div class="agent-card-container mat-grid-list">
-  <mat-form-field>
-      <mat-label>Filter by category</mat-label>
-      <mat-select [(value)]="selectedCategory" (selectionChange)="filterAgents(selectedCategory)">
-          <mat-option *ngFor="let category of categories" [value]="category">
-              {{category}}
-          </mat-option>
-      </mat-select>
-  </mat-form-field>
-  <mat-card class="agent-card mat-grid-tile" *ngFor="let agent of agents">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>{{agent.name}}</mat-card-title>
-      <mat-card-subtitle>{{agent.category}}</mat-card-subtitle>
-      <img mat-card-md-image [src]="agent.image"  alt="Image of an agent">
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    {{agent.description}}
-  </mat-card-content>
-</mat-card>
+<div class="agent">
+  <app-headerHome>
+    <ng-content class="mat-select-content"></ng-content>
+    <mat-form-field  appearance="fill" class="custom-filter">
+        <mat-label class="custom-filter-label">Filter by category</mat-label>
+        <mat-select [(value)]="selectedCategory" (selectionChange)="filterAgents(selectedCategory)">
+            <mat-option *ngFor="let category of categories" [value]="category">
+                {{category}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+  </app-headerHome>
+
+  <div class="agent-card-container mat-grid-list">
+    <mat-card class="agent-card mat-grid-tile" *ngFor="let agent of agents">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{agent.name}}</mat-card-title>
+        <mat-card-subtitle>{{agent.category}}</mat-card-subtitle>
+        <img mat-card-md-image [src]="agent.image"  alt="Image of an agent">
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      {{agent.description}}
+    </mat-card-content>
+  </mat-card>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HeaderHomeService } from '../service/headerHome.service';
 
 interface Agent {
   statusAgent: number;
@@ -20,7 +21,7 @@ export class AgentComponent implements OnInit {
   categories: string[] = [];
   selectedCategory: string = 'All';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private headerHomeService: HeaderHomeService) { }
 
   ngOnInit() {
     this.http.get<{status: number, data: {displayName: string, developerName: string, description: string, displayIcon: string, role: { displayName: string}, isPlayableCharacter: boolean}[]}>('https://valorant-api.com/v1/agents')
@@ -44,6 +45,8 @@ export class AgentComponent implements OnInit {
         this.agents = this.allAgents;
       });
       this.categories.push("All");
+
+      this.headerHomeService.updateBackground("pink");//Change background color
   }
 
   filterAgents(category: string) {
