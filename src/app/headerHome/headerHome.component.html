@@ -4,6 +4,6 @@
       <a href="#">A propos</a>
       <a href="#">Contact</a>
     </nav>
-    <ng-content></ng-content>
+    <ng-container [innerHTML]="content" [contentData]="vars"></ng-container>
+
 </div>
-  

@@ -6,6 +6,7 @@ import { AgentComponent } from './agent/agent.component';
 import { MapComponent } from './map/map.component';
 import { WeaponComponent } from './weapon/weapon.component';
 import { BundleComponent } from './bundle/bundle.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes)],
   exports: [RouterModule]

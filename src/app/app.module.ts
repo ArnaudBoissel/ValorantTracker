@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     HttpClientModule,
     MatFormFieldModule, 
-    MatSelectModule
+    MatSelectModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

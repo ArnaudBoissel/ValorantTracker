@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderHomeService } from '../service/headerHome.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private headerHomeService: HeaderHomeService) { }
 
   ngOnInit() {
+    this.headerHomeService.updateBackground("#333");//Change background color
   }
 
   onCardClick() {
