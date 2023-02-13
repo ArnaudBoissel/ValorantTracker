@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HeaderHomeService } from '../service/headerHome.service';
 
@@ -50,9 +50,18 @@ export class AgentComponent implements OnInit {
       this.categories.push("All");
 
       this.headerHomeService.updateBackground("pink");//Change background color
-  
-  
-      this.headerHomeService.updateContent(`
+      this.headerHomeService.updateOptions(this.categories);
+
+      this.headerHomeService.optionsBack$.subscribe(option => {
+        this.selectedCategory = option;
+        console.log("option select subs: ", this.selectedCategory)
+        this.filterAgents(this.selectedCategory)
+      });
+      //this.selectedCategory = this.headerHomeService.getSelectedOption();
+      console.log("option select: ", this.selectedCategory)
+    }
+
+      /*this.headerHomeService.updateContent(`
       <mat-form-field>
       <mat-label>Filter by category</mat-label>
       <mat-select [(value)]="selectedCategory" (selectionChange)="filterAgents(selectedCategory)">
@@ -60,9 +69,9 @@ export class AgentComponent implements OnInit {
               {{category}}
           </mat-option>
       </mat-select>
-  </mat-form-field>
-      `, {selectedCategory: this.selectedCategory, categories: this.categories});
-    }
+  </mat-form-field>*/
+
+    
 
   filterAgents(category: string) {
     this.selectedCategory = category;

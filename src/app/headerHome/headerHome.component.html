@@ -4,6 +4,14 @@
       <a href="#">A propos</a>
       <a href="#">Contact</a>
     </nav>
-    <ng-container [innerHTML]="content" [contentData]="vars"></ng-container>
-
+    <div>
+      <ng-container *ngIf="options.length > 0">
+        <mat-form-field>
+          <mat-label>Options</mat-label>
+          <mat-select [(value)]="selectedOption" (selectionChange)="onSelect($event.value)">
+            <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </ng-container>
+  </div>
 </div>

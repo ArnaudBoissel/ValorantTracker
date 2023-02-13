@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HeaderHomeService } from '../service/headerHome.service';
 import { HeaderHomeCacheService } from '../service/headerHome-cache.service';
 
@@ -9,21 +9,21 @@ import { HeaderHomeCacheService } from '../service/headerHome-cache.service';
 })
 export class HeaderHomeComponent implements OnInit {
   color: string = "#333";
-  content: string = '';
-  vars: any;
+  options: string[] = [];//mat-select
+  selectedOption: string = this.options[0];
   
   constructor(private headerHomeService: HeaderHomeService, private headerHomeCacheService: HeaderHomeCacheService) { }
 
   ngOnInit() {
     this.headerHomeService.background$.subscribe(color_l => {
-      this.color = color_l;
+      this.color = color_l; 
     });
-    this.headerHomeService.currentContent.subscribe((data) => {
-      this.content = data.content;
-      this.vars = data.vars;
-      console.log("html injecté depuis service: ", this.content);
-      console.log("var injecté depuis service: ", this.vars);
+    this.headerHomeService.options$.subscribe(options_l => {
+      this.options = options_l;
+      console.log("options ecrite: ", this.options)
     });
   }
-  
+  onSelect(selectedValue: string): void {
+    this.headerHomeService.setSelectedOption(selectedValue);
+  }
 }

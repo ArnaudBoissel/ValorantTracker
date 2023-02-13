@@ -7,15 +7,29 @@ import { Subject, BehaviorSubject } from 'rxjs';
 export class HeaderHomeService {
     private backgroundSource = new Subject<string>();
     background$ = this.backgroundSource.asObservable();
-    private contentSource = new BehaviorSubject<{content: string, vars: any}>({content: '', vars: {}});
-    currentContent = this.contentSource.asObservable();
+    private options = new Subject<string[]>();
+    options$ = this.options.asObservable();
+    private optionsBack = new Subject<string>();
+    optionsBack$ = this.optionsBack.asObservable();
+    private selectedOption = new BehaviorSubject<string>('');
     
     updateBackground(color: string) {
       this.backgroundSource.next(color);
     }
 
-    updateContent(content: string, vars: any) {
-      this.contentSource.next({content, vars});
-      console.log("services data: ", vars, content)
+    updateOptions(options: string[] )
+    {
+      this.options.next(options);
+    }
+
+    setSelectedOption(option: string): void {
+      this.optionsBack.next(option);
+      console.log("set option: ", option)
+      console.log("setSelectedOption: ", this.selectedOption)
+    }
+  
+    getSelectedOption(): BehaviorSubject<string>  {
+      console.log("getSelectedOption: ", this.selectedOption)
+      return this.selectedOption;
     }
 }
