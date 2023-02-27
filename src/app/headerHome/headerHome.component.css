@@ -32,6 +32,20 @@
     box-sizing: border-box;
 }
 
+.mat-select-header {
+    padding: 40px;
+    height: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .ligne-composant{
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
 @media (max-width: 600px) {
     .headerHome nav {
         flex-wrap: wrap;

@@ -21,7 +21,9 @@ export class MapComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<{status: number, data: {displayName: string, coordinates: string, displayIcon: string, listViewIcon: string, splash: string}[]}>('https://valorant-api.com/v1/maps')
+    this.http.get<{status: number, 
+      data: {displayName: string, coordinates: string, displayIcon: string, listViewIcon: string, splash: string
+      }[]}>('https://valorant-api.com/v1/maps')
       .subscribe(({status, data}) => {
         data.forEach(map => {
             this.maps.push({

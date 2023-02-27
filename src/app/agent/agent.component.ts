@@ -1,6 +1,7 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HeaderHomeService } from '../service/headerHome.service';
+import { Subscription } from 'rxjs';
 
 interface Agent {
   statusAgent: number;
@@ -18,16 +19,19 @@ interface Agent {
   <router-outlet></router-outlet>
 `,
 })
-export class AgentComponent implements OnInit {
+export class AgentComponent implements OnInit, OnDestroy  {
   agents: Agent[] = [];
   allAgents: Agent[] = [];
   categories: string[] = [];
   selectedCategory: string = 'All';
+  optionsSubscription: Subscription = new Subscription();
 
   constructor(private http: HttpClient, private headerHomeService: HeaderHomeService) { }
 
   ngOnInit() {
-    this.http.get<{status: number, data: {displayName: string, developerName: string, description: string, displayIcon: string, role: { displayName: string}, isPlayableCharacter: boolean}[]}>('https://valorant-api.com/v1/agents')
+    this.http.get<{status: number, 
+      data: {displayName: string, developerName: string, description: string, displayIcon: string, role: { displayName: string}, isPlayableCharacter: boolean
+    }[]}>('https://valorant-api.com/v1/agents')
       .subscribe(({status, data}) => {
         data.forEach(agent => {
           if (agent.isPlayableCharacter) {
@@ -49,10 +53,10 @@ export class AgentComponent implements OnInit {
       });
       this.categories.push("All");
 
-      this.headerHomeService.updateBackground("pink");//Change background color
+      //this.headerHomeService.updateBackground("pink");//Change background color
       this.headerHomeService.updateOptions(this.categories);
 
-      this.headerHomeService.optionsBack$.subscribe(option => {
+      this.optionsSubscription = this.headerHomeService.optionsBack$.subscribe(option => {
         this.selectedCategory = option;
         console.log("option select subs: ", this.selectedCategory)
         this.filterAgents(this.selectedCategory)
@@ -61,18 +65,6 @@ export class AgentComponent implements OnInit {
       console.log("option select: ", this.selectedCategory)
     }
 
-      /*this.headerHomeService.updateContent(`
-      <mat-form-field>
-      <mat-label>Filter by category</mat-label>
-      <mat-select [(value)]="selectedCategory" (selectionChange)="filterAgents(selectedCategory)">
-          <mat-option *ngFor="let category of categories" [value]="category">
-              {{category}}
-          </mat-option>
-      </mat-select>
-  </mat-form-field>*/
-
-    
-
   filterAgents(category: string) {
     this.selectedCategory = category;
     if (category === 'All') {
@@ -80,5 +72,14 @@ export class AgentComponent implements OnInit {
     } else {
       this.agents = this.allAgents.filter(agent => agent.category === category);
     }
+  }
+
+  ngOnDestroy() {
+    this.optionsSubscription.unsubscribe();
+    // nettoyer les données ici
+    this.agents = [];
+    this.allAgents = [];
+    this.categories = [];
+    this.selectedCategory = 'All';
   }
 }

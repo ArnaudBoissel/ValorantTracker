@@ -1,1 +1,14 @@
-<p>weapon works!</p>
+<div class="weapon-card-container mat-grid-list">
+    <mat-card class="weapon-card mat-grid-tile" *ngFor="let weapon of weapons">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{weapon.name}}</mat-card-title>
+          <mat-card-subtitle>{{weapon.category}}</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <img class="card-image" mat-card-image [src]="weapon.displayIcon" alt="Image of weapon"/>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

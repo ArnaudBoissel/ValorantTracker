@@ -1,0 +1,39 @@
+.weapon {
+    background-color: purple;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weapon-card-container {
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  
+  .weapon-grid-tile {
+    width: 25%;
+  }
+  
+  .weapon-card {
+    height: auto;
+    min-height: 350px;
+    margin: 1%;
+    overflow: visible;
+  }
+  
+  .weapon-card mat-card-image img {
+    max-height: 100px;
+    object-fit: contain;
+  }
+  
+  .card-image {
+    max-height: 100px;
+    object-fit: contain;
+  }
+  
