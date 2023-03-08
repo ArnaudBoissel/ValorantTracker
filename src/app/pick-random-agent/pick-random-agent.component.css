@@ -1,0 +1,88 @@
+.pickRandomAgent-container {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.button-group {
+  margin-top: 50px;
+  display: center;
+  justify-content: center;
+}
+
+.user-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card p {
+  margin: 5px 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card .agent-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px);
+    max-height: calc(50vw - 40px);
+  }
+}
+
+.agent-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: right;
+}
+
+button.random-button {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: rgb(180, 41, 41);
+  color: white;
+  align-items: right;
+}
+
+button.random-button:hover {
+  background-color: rgb(180, 41, 41);
+}
