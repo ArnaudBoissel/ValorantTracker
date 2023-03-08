@@ -6,6 +6,8 @@ import { AgentComponent } from './agent/agent.component';
 import { MapComponent } from './map/map.component';
 import { WeaponComponent } from './weapon/weapon.component';
 import { BundleComponent } from './bundle/bundle.component';
+import { PickRandomAgentComponent } from './pick-random-agent/pick-random-agent.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,11 +15,13 @@ const routes: Routes = [
   { path: 'agent', component: AgentComponent },
   { path: 'map', component: MapComponent },
   { path: 'weapon', component: WeaponComponent },
-  { path: 'bundle', component: BundleComponent }
+  { path: 'bundle', component: BundleComponent },
+  { path: 'pick-random-agent', component: PickRandomAgentComponent }
 ];
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes)],
   exports: [RouterModule]

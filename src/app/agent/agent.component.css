@@ -26,6 +26,13 @@
     overflow: visible;
   }
 
+
+
+.mat-select-content {
+    background-color: blueviolet;
+    color: aqua;
+  }
+
 .custom-filter {
   float: right;
   margin-right: 5%;
@@ -34,55 +41,55 @@
   align-items: center;
   height: fit-content;
   max-width: 200px;
-  color: blue;
+  color: pink;
   margin-top:20px;
 }
 
+.custom-filter-label{
+  background-color: chocolate;
+}
 
-.custom-filter .custom-filter-label{
+.custom-filter-select {
+  background-color: blueviolet;
+  background: blue;
+}
+
+.custom-mat-option {
+  background-color: chartreuse;
+}
+
+.mat-mdc-text-field-wrapper {
+  width: 100%;
+  background-color: blue;
+}
+
+.custom-filter .mat-mdc-form-field-focus-overlay.ng-tns-c52-0.ng-star-inserted {
+ background-color: fuchsia;
+ color: black;
+}
+
+/*
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-label {
   color: white;
 }
 
-.custom-filter .mat-select{
-  color:white;
-  background: cyan;
-  background-color: red;
+.mat-form-field-appearance-fill .mat-select-value {
+  color: white;
 }
 
-.custom-filter .mat-option{
-  color:brown;
+.mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  color: white;
 }
 
-/* .custom-filter mat-select {
-  color: purple;
-  background: cyan;
-  background-color: red;
-  opacity: 0.75;
-} */
-
-
-.custom-filter .mat-form-field-underline {
-  /* Customize the color of the underline */
-  background-color: goldenrod !important;
+.mat-select-panel {
+  background-color: transparent;
 }
 
-.custom-selector .mat-form-field-label {
-  /* Customize the color of the label text */
-  color: pink !important;
+.mat-option {
+  color: white;
 }
-
-.custom-selector .mat-select-value {
-  /* Customize the color of the selected value text */
-  color: pink !important;
-}
-
-.custom-selector .mat-select-arrow {
-  /* Customize the color of the arrow icon */
-  color: magenta !important;
-}
-
-.custom-selector .mat-select-underline {
-  /* Customize the color of the selected underline */
-  background-color: cyan !important;
-}
-
+*/

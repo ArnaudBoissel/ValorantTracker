@@ -1,1 +1,13 @@
-<p>bundle works!</p>
+<div class="bundle-card-container mat-grid-list">
+    <mat-card class="bundle-card mat-grid-tile" *ngFor="let bundle of bundles">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{bundle.name}}</mat-card-title>
+        </mat-card-title-group>
+      </mat-card-header>
+      <img class="card-image" mat-card-image [src]="bundle.displayIcon" alt="Image of bundle"/>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

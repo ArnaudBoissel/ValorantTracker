@@ -1,0 +1,23 @@
+<div class="pickRandomAgent-container">
+    <div class="button-group">
+      <mat-button-toggle-group (change)="onToggleChange($event.value)" multiple>
+        <mat-button-toggle *ngFor="let user of users" value="{{user}}">
+          {{user}}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+            <button mat-raised-button color="primary" class="random-button mat-elevation-z2" (click)="assignItemsToUsers(nbUserSelected, itemList)">Start</button>
+      </div>
+  
+    <div class="user-cards">
+      <div class="card" *ngFor="let user of usersData">
+        <div class="agent-image-container">
+          <img [src]="user.agent.image || 'assets/placeholder-image.png'" alt="Agent Image">
+        </div>
+        <div class="card-body">
+          <div class="card-header">{{user.numberUser}}</div>
+          <div class="agent-name">{{user.agent.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

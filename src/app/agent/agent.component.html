@@ -1,15 +1,4 @@
 <div class="agent">
-  <app-headerHome>
-    <ng-content class="mat-select-content"></ng-content>
-    <mat-form-field  appearance="fill" class="custom-filter">
-        <mat-label class="custom-filter-label">Filter by category</mat-label>
-        <mat-select [(value)]="selectedCategory" (selectionChange)="filterAgents(selectedCategory)">
-            <mat-option *ngFor="let category of categories" [value]="category">
-                {{category}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-  </app-headerHome>
 
   <div class="agent-card-container mat-grid-list">
     <mat-card class="agent-card mat-grid-tile" *ngFor="let agent of agents">

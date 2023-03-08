@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { CommonModule } from '@angular/common';
+import { PickRandomAgentComponent } from './pick-random-agent/pick-random-agent.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
     MapComponent,
     WeaponComponent,
     BundleComponent,
+    PickRandomAgentComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     HttpClientModule,
     MatFormFieldModule, 
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
